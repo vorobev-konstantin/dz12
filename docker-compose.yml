@@ -14,8 +14,6 @@ services:
     volumes:
       - db:/var/lib/mysql
   builder:
-    depends_on:
-      - mysqldb
     build:
       dockerfile: Dockerfile
       context: ./
