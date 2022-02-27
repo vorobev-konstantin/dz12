@@ -14,7 +14,8 @@ services:
   builder:
     depends_on:
       - mysqldb
-    build: app
+    dockerfile: Dockerfile.build
+    context: ./
     volumes:
       - data:/opt
   prod:
