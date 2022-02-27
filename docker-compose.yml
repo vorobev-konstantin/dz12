@@ -15,7 +15,7 @@ services:
     depends_on:
       - mysqldb
     build:
-      dockerfile: Dockerfile.build
+      dockerfile: Dockerfile
       context: ./
     volumes:
       - data:/opt
