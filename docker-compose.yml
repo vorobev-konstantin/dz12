@@ -11,11 +11,21 @@ services:
       - $MYSQLDB_LOCAL_PORT:$MYSQLDB_DOCKER_PORT
     volumes:
       - db:/var/lib/mysql
-  app:
+  builder:
     depends_on:
       - mysqldb
     build: ./app
     volumes:
-      - app:/root/app
+      - data:/opt
+  prod:
+    image: tomcat:9.0.8-jre8-alpine
+    volumes:
+      - data:/usr/local/tomcat/webapps
+    depends_on:
+      - builder
+    ports:
+      - $WEB_PORT:$WEB_PORT
+  
 volumes:
+  data:
   db:
