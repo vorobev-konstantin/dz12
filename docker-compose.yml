@@ -14,7 +14,7 @@ services:
   builder:
     depends_on:
       - mysqldb
-    build: ./app
+    build: app
     volumes:
       - data:/opt
   prod:
