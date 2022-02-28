@@ -23,6 +23,7 @@ services:
     image: tomcat:9.0.8-jre8-alpine
     volumes:
       - data:/usr/local/tomcat/webapps
+      - ./Config.properties:/usr/local/tomcat/ROOT/Config.properties
     depends_on:
       - builder
     ports:
